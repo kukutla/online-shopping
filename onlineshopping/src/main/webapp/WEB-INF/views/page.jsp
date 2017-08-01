@@ -25,6 +25,11 @@
 <!-- Custom CSS -->
 <link href="${css}/myapp.css" rel="stylesheet">
 
+<!-- Custom CSS -->
+<link href="${css}/bootstrap-readable-theme.css" rel="stylesheet">
+
+
+
 <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
 <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
 <!--[if lt IE 9]>
@@ -35,34 +40,40 @@
 </head>
 
 <body>
-  <script>
- 	 window.menu = '${title}';
-  </script>
+	<div class="wrapper">
+		<script>
+			window.menu = '${title}';
+		</script>
 
-	<!-- Navigation -->
-	<%@include file="./shared/navbar.jsp"%>
-    <!-- Page Content -->
-		
-	<c:if test="${userClicksHome == true}">
-		<%@include file="home.jsp"%>
-	</c:if>
-	<c:if test="${userClicksAbout == true}">
-		<%@include file="about.jsp"%>
-	</c:if>
-	<c:if test="${userClicksContact == true}">
-		<%@include file="contact.jsp"%>
-	</c:if>
+		<!-- Navigation -->
+		<%@include file="./shared/navbar.jsp"%>
+		<!-- Page Content -->
+		<div class="content">
+			<!-- User selected Home Page -->
+			<c:if test="${userClicksHome == true}">
+				<%@include file="home.jsp"%>
+			</c:if>
+			<!-- User selected About US-->
+			<c:if test="${userClicksAbout == true}">
+				<%@include file="about.jsp"%>
+			</c:if>
+			<!-- User selected Contact US-->
+			<c:if test="${userClicksContact == true}">
+				<%@include file="contact.jsp"%>
+			</c:if>
+		</div>
+		<!-- Footer Page-->
+		<%@include file="./shared/footer.jsp"%>
+		<!-- /.container -->
 
-	<%@include file="./shared/footer.jsp"%>
-	<!-- /.container -->
+		<!-- jQuery -->
+		<script src="${js}/jquery.js"></script>
 
-	<!-- jQuery -->
-	<script src="${js}/jquery.js"></script>
-
-	<!-- Bootstrap Core JavaScript -->
-	<script src="${js}/bootstrap.min.js"></script>
-	<!-- including self written code -->
-	<script src="${js}/myapp.js"></script>
+		<!-- Bootstrap Core JavaScript -->
+		<script src="${js}/bootstrap.min.js"></script>
+		<!-- including self written code -->
+		<script src="${js}/myapp.js"></script>
+	</div>
 </body>
 
 </html>
